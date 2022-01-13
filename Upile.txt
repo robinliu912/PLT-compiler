@@ -1,0 +1,18 @@
+/* Cet automate a une pile, il permet de programmer toutes les grammaires BNF et 
+de simuler la reconnaissance des langages algébriques*/
+Automate(1) ={
+/* Cet automate a une pile
+ Il correspond à l'automate reconnaissant le langage
+ a^n.c^p.b^n, où n>0 */
+	etats =["一","二","三"] // Les noms peuvent être différents de numéros
+// Chaque état est repéré par son numéro dans la liste etats
+	initial= 0
+// final est une liste, même s'il n'y a qu'un état final
+	final =[1]
+	transitions=[(0→ 0, `a`,(→, `a`)),
+		(0 → 1,`b`, (`a`,→)),
+		(2 → 1,`b`, (`a`,→)),
+		(0 →2,`c`,()), // Pas d'action de pile
+		(2 → 2, `c`), // Pas d'action de pile
+		(1 → 1,`b`,(`a`,→))]
+}

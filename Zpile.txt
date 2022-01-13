@@ -1,0 +1,13 @@
+Automate(0)={
+// Cet automate n'a pas de pile
+// Il correspond à l'automate du cours 5, page 5
+	etats=["1","2", "3","Init"] // Le 0 est en dernier, c'est plus clair
+// Chaque état est repéré par son numéro dans la liste etats
+// Cette liste commence à l'indice 0
+	initial =3 // L'état Init
+// final est une liste, même s'il n'y a qu'un état final
+	final= [0,1, 2]
+	transitions = [(3→0,`0`),(3 →1,`1`),(3→ 2,`2`),
+		(0 → 1,`1`),(0 → 2,`2`),(1 → 0,`0`),(1 → 2,`2`),
+		(2 → 0,`0`),(2 → 1,`1`)]
+}

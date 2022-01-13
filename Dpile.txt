@@ -1,0 +1,19 @@
+/* Cet automate a deux piles */
+
+Automate(2) = {
+/* Cet automate a deux piles
+// Il correspond à l'automate reconnaissant le langage
+// a^n.b^n.c^n où n>0 (cours 10, page 18) */
+	etats = [`A`,`B`, `C`]
+	// On pourrait mettre aussi [`a`, `b`,`c`]
+// Chaque état est repéré par son numéro dans la liste etats
+	initial = 0
+// final est une liste, même s'il n'y a qu'un état final
+	final= [2]
+	transitions=[(0 → 0, `a`, (→,`a`)), // Pas d'action sur la pile 2
+		// On pourrait aussi écrire (0 → 0, `a`, (→,`a`),())
+		(0 → 1, `b`, (`a`, →),(→, `b`)),
+		(1 → 1, `b`, (`a`, →), (→,`b`)),
+		(1 → 2, `c`, (), (`b`, → )), // Pas d'action sur la pile 1
+		(2 → 2, `c`,(), (`b`, →))]
+}
